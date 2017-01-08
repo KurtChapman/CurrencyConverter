@@ -6,26 +6,21 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Integer> drawableIds;
-    int currentIndex = 0;
-
-    private void incrementIndex(){
-        if(currentIndex < drawableIds.size() - 1){
-            currentIndex++;
-        } else {
-            currentIndex = 0;
-        }
+    private int getCheckedIdFromRadioGroup(int radioListId){
+        RadioGroup radioGroup = (RadioGroup) findViewById(radioListId);
+        int checkedId = radioGroup.getCheckedRadioButtonId();
+        return checkedId;
     }
 
-    public void cmdSwitchImage(View view) {
-        incrementIndex();
-        ImageView image = (ImageView)findViewById(R.id.imageView);
-        image.setImageResource(drawableIds.get(currentIndex));
+    public void cmdConvertCurrency(View view){
+        int checkedFromId = getCheckedIdFromRadioGroup(R.id.listFromSelector);
+        int checkedToId = getCheckedIdFromRadioGroup(R.id.listToSelector);
     }
 
     private String getTextFromView(View view){
@@ -41,9 +36,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        drawableIds = new ArrayList<Integer>();
-        drawableIds.add(R.drawable.cat1);
-        drawableIds.add(R.drawable.cat2);
-        drawableIds.add(R.drawable.cat3);
     }
 }

@@ -11,18 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.kurt.demoapp.MainActivity">
 
-    <Button
-        android:text="Convert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_marginRight="62dp"
-        android:layout_marginEnd="62dp"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText"
-        android:onClick="cmdConvertCurrency" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,4 +96,14 @@
             android:layout_weight="1" />
 
     </RadioGroup>
+
+    <Button
+        android:text="Convert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:onClick="cmdConvertCurrency"
+        android:layout_below="@+id/editText"
+        android:layout_toLeftOf="@+id/listToSelector"
+        android:layout_toStartOf="@+id/listToSelector" />
 </RelativeLayout>
